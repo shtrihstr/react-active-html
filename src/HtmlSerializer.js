@@ -2,21 +2,14 @@
 export default class HtmlSerializer {
 
     constructor() {
-        // if NodeJS
-        if (typeof DOMParser === 'undefined') {
-            var DOMParser = require('xmldom').DOMParser;
-            if (DOMParser) {
-                const options = {
-                    errorHandler: {
-                        warning: function(w) {}
-                    }
-                };
-                this.parser = new DOMParser(options);
-            }
-        }
-        // if browser
-        else {
-            this.parser = new DOMParser();
+
+        if (typeof DOMParser !== 'undefined') {
+            const options = {
+                errorHandler: {
+                    warning: function(w) {}
+                }
+            };
+            this.parser = new DOMParser(options);
         }
 
         this._removeEmptyStrings = false;
@@ -61,7 +54,16 @@ export default class HtmlSerializer {
             return {};
         }
 
-        const doc = this.parser.parseFromString(html, "text/html");
+        if (!this.parser) {
+            console && console.error("DOMParser was not found.");
+            return html;
+        }
+
+        let doc = this.parser.parseFromString(html, "text/html");
+
+        if (doc.body) {
+            doc = doc.body;
+        }
 
         if (!doc.childNodes) {
             return {};
@@ -89,7 +91,7 @@ export default class HtmlSerializer {
 
             }
             else {
-                obj.node = node.tagName;
+                obj.node = node.tagName.toLowerCase();
             }
 
 

@@ -1,12 +1,22 @@
 {
     "name": "react-active-html",
-    "version": "1.0.0",
+    "version": "1.0.5",
     "description": "Convert HTML string to React Components",
     "main": "lib/index.js",
     "scripts": {
         "build": "babel src/ --out-dir lib/"
     },
-    "author": "",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/shtrihstr/react-active-html.git"
+    },
+    "keywords": [
+        "react"
+    ],
+    "author": {
+        "name": "Oleksandr Strikha",
+        "email": "alex@strikha.com"
+    },
     "license": "MIT",
     "dependencies": {
         "to-camel-case": "^1.0.0"

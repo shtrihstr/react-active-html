@@ -8,11 +8,11 @@ The most of CMS provide content as pure html from WYSIWYG editors:
     "content": "<a href='/hello'>Hello World</a><img src='image.png' class='main-image' alt='' /><p>Lorem ipsum...</p>"
 }
 ```
-In this case you lose advantage of using React components in content.
+In this case you lose advantage of using React components in the content.
 
 ## Solution
 ```jsx
-import activeHtml from 'active-html';
+import activeHtml from 'react-active-html';
 
 class Html extends Component {
 
@@ -42,11 +42,14 @@ class Html extends Component {
 
         return (<div className="html">{nodes}</div>);
     }
-
+}
 ```
 
 ## Installation
-#### Frontend
-    npm install active-html --save-dev
-#### Backend (NodeJS)
-    npm install active-html xmldom --save
+### Frontend
+    npm install react-active-html --save-dev
+### Backend (NodeJS)
+    npm install react-active-html xmldom --save
+```js
+GLOBAL.DOMParser = require('xmldom').DOMParser;
+```
