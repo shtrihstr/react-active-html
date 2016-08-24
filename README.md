@@ -2,7 +2,7 @@
 Convert HTML string to React Components
 
 ## The problem
-The most of CMS provide content as pure html from WYSIWYG editors:
+The most of the CMS provide content as pure html from WYSIWYG editors:
 ```json
 {
     "content": "<a href='/hello'>Hello World</a><img src='image.png' class='main-image' alt='' /><p>Lorem ipsum...</p>"
