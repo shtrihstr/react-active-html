@@ -4,12 +4,7 @@ export default class HtmlSerializer {
     constructor() {
 
         if (typeof DOMParser !== 'undefined') {
-            const options = {
-                errorHandler: {
-                    warning: function(w) {}
-                }
-            };
-            this.parser = new DOMParser(options);
+            this.parser = new DOMParser();
         }
 
         this._removeEmptyStrings = false;
