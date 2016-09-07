@@ -70,6 +70,9 @@ export default function (htmlSting, componentsMap = {}, options = {}) {
 
     const tree = serializer.parseHtml(htmlSting);
 
+    if (typeof tree === 'object' && tree.length > 0) {
+        return htmlTreeToComponents(tree, componentsMap);
+    }
 
-    return htmlTreeToComponents(tree, componentsMap);
+    return null;
 }

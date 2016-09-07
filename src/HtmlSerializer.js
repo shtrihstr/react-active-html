@@ -46,7 +46,7 @@ export default class HtmlSerializer {
 
     parseHtml(html) {
         if (typeof html !== 'string' || html == '') {
-            return {};
+            return [];
         }
 
         if (!this.parser) {
@@ -61,7 +61,7 @@ export default class HtmlSerializer {
         }
 
         if (!doc.childNodes) {
-            return {};
+            return [];
         }
 
         return this._parseNodes(doc.childNodes);
