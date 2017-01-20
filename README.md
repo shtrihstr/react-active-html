@@ -51,5 +51,5 @@ class Html extends Component {
 ### Backend (NodeJS)
     npm install react-active-html xmldom --save
 ```js
-GLOBAL.DOMParser = require('xmldom').DOMParser;
+global.DOMParser = require('xmldom').DOMParser;
 ```
