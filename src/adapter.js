@@ -1,5 +1,5 @@
-import HTMLDOMPropertyConfig from 'react/lib/HTMLDOMPropertyConfig';
-import SVGDOMPropertyConfig from 'react/lib/SVGDOMPropertyConfig';
+import HTMLDOMPropertyConfig from 'react-dom/lib/HTMLDOMPropertyConfig';
+import SVGDOMPropertyConfig from 'react-dom/lib/SVGDOMPropertyConfig';
 import toCamelCase from 'to-camel-case';
 
 let keyMap = {};
