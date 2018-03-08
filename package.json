@@ -1,6 +1,6 @@
 {
     "name": "react-active-html",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "description": "Convert HTML string to React Components",
     "main": "lib/index.js",
     "scripts": {
