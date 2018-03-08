@@ -11,10 +11,11 @@ function activeHtml(html, componentsMap) {
     let nodes;
     if (typeof html === 'string') {
         nodes = parseHtml(html, activeHtml.DOMParser);
-    } else if (typeof NodeList !== 'undefined' && NodeList instanceof NodeList) {
-        nodes = NodeList;
+    } else if ((typeof NodeList !== 'undefined' && html instanceof NodeList) ||
+               (typeof HTMLCollection !== 'undefined' && html instanceof HTMLCollection)) {
+        nodes = html;
     } else if (typeof Node !== 'undefined' && html instanceof Node) {
-        nodes = [Node];
+        nodes = [html];
     } else {
         errorLog('Invalid parameter: html must be a string or DOM Nodes');
         return null;
