@@ -3,8 +3,8 @@
 # Active HTML for ReactJS
 Convert HTML string to React Components
 
-## The problem
-The most of the CMS provide content as pure html from WYSIWYG editors:
+## Problem
+The most of CMS provides content as pure html from WYSIWYG editors:
 ```json
 {
     "content": "<a href='/hello'>Hello World</a><img src='image.png' class='main-image' alt='' /><p>Lorem ipsum...</p>"
@@ -44,9 +44,9 @@ class Html extends Component {
 
 ## Installation
 ### Browser
-    npm install react-active-html --save-dev
+    npm install react-active-html
 ### Node
-    npm install react-active-html xmldom --save
+    npm install react-active-html xmldom
 ```js
 const activeHtml = require('react-active-html');
 const xmldom = require('rxmldom');
