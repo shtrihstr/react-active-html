@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/shtrihstr/react-active-html.svg?branch=master)](https://travis-ci.org/shtrihstr/react-active-html)
+
 # Active HTML for ReactJS
 Convert HTML string to React Components
 
@@ -14,42 +16,40 @@ In this case you lose advantage of using React components in the content.
 ```jsx
 import activeHtml from 'react-active-html';
 
+const componentsMap = {
+    // replace <img> tags by custom react component
+    img: props => <Image {...props} />,
+    // replace <a> tags by React Router Link component
+    a: props => <Link {...props} to={props.href} />,
+    // add lazy load to all iframes
+    iframe: props => (
+        <LazyLoad>
+            <iframe {...props} />
+        </LazyLoad>
+    )
+};
+
 class Html extends Component {
+    shouldComponentUpdate(nextProps) {
+        return this.props.content !== nextProps.content;
+    }
 
     render() {
-
-        const components = {
-            // replace <img> tags by custom react component
-            img: (attributes) => {
-                return (<Image {...attributes} />);
-            },
-            // replace <a> tags by React Router Link component
-            a: (attributes) => {
-                return (<Link to={attributes.href} {...attributes} />);
-            },
-            // add lazy load to all iframes
-            iframe: (attributes) => {
-                return (
-                    <LazyLoad>
-                        <iframe {...attributes} />
-                    </LazyLoad>
-                );
-            }
-        };
-
         // convert string property "content" to React components
-        let nodes = activeHtml(this.props.content, components);
-
-        return (<div className="html">{nodes}</div>);
+        const nodes = activeHtml(this.props.content, componentsMap);
+        return <div className="html">{nodes}</div>;
     }
 }
 ```
 
 ## Installation
-### Frontend
+### Browser
     npm install react-active-html --save-dev
-### Backend (NodeJS)
+### Node
     npm install react-active-html xmldom --save
 ```js
-global.DOMParser = require('xmldom').DOMParser;
+const activeHtml = require('react-active-html');
+const xmldom = require('rxmldom');
+
+activeHtml.DOMParser = new xmldom.DOMParser();
 ```

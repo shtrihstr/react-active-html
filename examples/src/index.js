@@ -8,7 +8,7 @@ const html = '<artice><img src="https://placeimg.com/300/300/animals" class="mai
 
 const componentsMap = {
     // use custom component for all <p> nodes
-    p: (props) => <h1 {...props} className={`paragraph ${props.className}`} />
+    p: props => <h1 {...props} className={`paragraph ${props.className}`} />
 };
 
 class HTML extends Component {
